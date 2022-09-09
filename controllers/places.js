@@ -83,7 +83,7 @@ router.get('/:id/edit', (req, res) => {
         })
 })
 
-router.post('/:id/comment', (req, res) => {
+router.put('/post/:id/comment', (req, res) => {
     console.log('post comment', req.body)
     if (req.body.author === '') { req.body.author = undefined }
     req.body.rant = req.body.rant ? true : false
@@ -109,7 +109,7 @@ router.post('/:id/comment', (req, res) => {
         })
 })
 
-router.delete('/:id/comment/:commentId', (req, res) => {
+router.post('/delete/:id/comment/:commentId', (req, res) => {
     db.Comment.findByIdAndDelete(req.params.commentId)
         .then(() => {
             console.log('Success')
