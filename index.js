@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
-
+const router = require("./controllers/places")
 // Express Settings
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('method'))
 
 // Controllers & Routes
-app.use('/places', require('./controllers/places'))
+app.use('/places', router)
 
 app.get('/', (req, res) => {
     res.render('home')

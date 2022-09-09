@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
         })
 })
 
-router.put('/:id', (req, res) => {
+router.post('/put/:id', (req, res) => {
     db.Place.findByIdAndUpdate(req.params.id, req.body)
         .then(() => {
             res.redirect(`/places/${req.params.id}`)
@@ -62,7 +62,7 @@ router.put('/:id', (req, res) => {
         })
 })
 
-router.delete('/:id', (req, res) => {
+router.post('/delete/:id', (req, res) => {
     db.Place.findByIdAndDelete(req.params.id)
         .then(() => {
             res.redirect('/places')
